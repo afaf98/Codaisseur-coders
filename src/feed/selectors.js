@@ -1,4 +1,5 @@
 export function selectFeedLoading(reduxState) {
+  console.log("ReduxState", reduxState);
   return reduxState.feed.loading;
 }
 

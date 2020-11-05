@@ -3,10 +3,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import axios from "axios";
-import { startLoading, postsFetched } from "../feed/actions";
+import { fetchNext5Posts } from "../feed/actions";
 import { selectFeedLoading, selectFeedPosts } from "../feed/selectors";
-
-const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
 
 export default function PostsFeed() {
   const dispatch = useDispatch();
@@ -14,24 +12,9 @@ export default function PostsFeed() {
   const loading = useSelector(selectFeedLoading);
   const posts = useSelector(selectFeedPosts);
 
-  async function fetchNext5Posts() {
-    dispatch(startLoading());
-
-    // TODO
-    // fetch next set of posts (use offset+limit),
-    //  and define the variable `morePosts`
-
-    const res = await axios.get(
-      `${API_URL}/posts?offset=${posts.length}&limit=5`
-    );
-    const morePosts = res.data.rows;
-
-    dispatch(postsFetched(morePosts));
-  }
-
   useEffect(() => {
-    fetchNext5Posts();
-  }, []);
+    dispatch(fetchNext5Posts);
+  }, [dispatch]);
   //   console.log("Data", data.posts);
   return (
     <div className="PostsFeed">
