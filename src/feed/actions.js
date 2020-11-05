@@ -1,4 +1,5 @@
 import axios from "axios";
+import API_URL from "../config";
 
 export function startLoading() {
   return {
@@ -13,7 +14,7 @@ export function postsFetched(morePosts) {
     payload: morePosts,
   };
 }
-const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
+// const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
 export async function fetchNext5Posts(dispatch, getState) {
   dispatch(startLoading());
   console.log("What is getState", getState().feed.posts.length);

@@ -1,7 +1,8 @@
 // src/store / postPage / actions.js;
 import axios from "axios";
+import API_URL from "../config";
 
-const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
+// const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
 
 export function startLoadingPost() {
   return {
