@@ -11,7 +11,7 @@ export default function PostsFeed() {
 
   const loading = useSelector(selectFeedLoading);
   const posts = useSelector(selectFeedPosts);
-
+  console.log("Post", posts);
   useEffect(() => {
     dispatch(fetchNext5Posts);
   }, [dispatch]);
@@ -28,6 +28,7 @@ export default function PostsFeed() {
               return (
                 <div key={p.id}>
                   <h2>
+                    {console.log("One Post", p)}
                     <Link to={`/post/${p.id}`}>{p.title}</Link>
                   </h2>
                   <p>{moment(p.createdAt).format("DD-MM-YYYY")}</p>
