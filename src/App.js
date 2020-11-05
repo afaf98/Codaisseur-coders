@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import PostsFeed from "./components/PostFeed";
+import PostsFeed from "./pages/PostFeed";
 import PostPage from "./pages/PostPage";
 
 function App() {
