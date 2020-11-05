@@ -1,8 +1,8 @@
 // src/components/PostsFeed.js
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import moment from "moment";
-import axios from "axios";
 import { fetchNext5Posts } from "../feed/actions";
 import { selectFeedLoading, selectFeedPosts } from "../feed/selectors";
 
@@ -27,7 +27,9 @@ export default function PostsFeed() {
           : posts.map((p) => {
               return (
                 <div key={p.id}>
-                  <h2>{p.title}</h2>
+                  <h2>
+                    <Link to={`/post/${p.id}`}>{p.title}</Link>
+                  </h2>
                   <p>{moment(p.createdAt).format("DD-MM-YYYY")}</p>
                 </div>
               );
